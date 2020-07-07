@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+html{
+    background-color: black; 
+}
+body{
+    width: 100vw; 
+    font-family: 'PT Sans Narrow', sans-serif;; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    margin: 0 auto; 
+    background-image: url('https://cdn.hipwallpaper.com/i/98/21/dUyCkp.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    color: white; 
+}
+
+.container{
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-start;
+    width: 100vw;
+    height: auto;  
+    overflow-x: scroll; 
+    white-space: wrap;
+    background-color: transparent; 
+}
+
+.movieCard{
+    width: 200px; 
+    height: auto; 
+    display: flex; 
+    flex-direction: column; 
+    margin: 0 5px; 
+    background-color: black; 
+    margin-bottom: 20px; 
+    border-radius: 2px; 
+    box-shadow: 0px 5px 5px black; 
+}
+.movieCard:hover{
+    opacity: 1; 
+    background-color: rgb(16, 14, 14); 
+}
+
+img{
+    width: 180px; 
+    height: 240px; 
+    object-fit: contain; 
+    margin: 0 auto; 
+    padding: 10px; 
+}
+
+p{
+    width: 100%; 
+    height: auto; 
+    margin: 0 auto; 
+    padding: 10px 0px; 
+    text-align: center; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+h1{
+    font-size: 60px; 
+    font-weight: bolder; 
+    width: 100%; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: center; 
+    color: white(216, 13, 13); 
+    text-shadow: 4px 4px 1px black; 
+    background-color: red; 
+}
+
+form{
+    padding: 50px 0px 100px; 
+    margin: 0 auto; 
+    letter-spacing: 2px; 
+}
+.search{
+    width: 200px; 
+    height: 30px; 
+    border-radius: 5px; 
+    text-align: center; 
+    border-style: none; 
+    box-shadow: 0px 5px 5px black; 
+}
+button{
+    border-style: none; 
+    height: 30px; 
+    width: 100px; 
+    border-radius: 5px; 
+    box-shadow: 0px 5px 5px black;     
+}
+.searchButton{
+    background-color: red; 
+    font-weight: bold; 
+}
+.resetButton{
+    background-color: black; 
+    font-weight: bold; 
+    color: white; 
+}
