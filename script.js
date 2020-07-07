@@ -6,7 +6,7 @@ const getData = (e) => {
     e.preventDefault(); 
     const search = document.querySelector('.search').value; 
     console.log(search); 
-    fetch(`http://www.omdbapi.com/?s=${search}&apikey=c0b965ad`)
+    fetch(`https://www.omdbapi.com/?s=${search}&apikey=c0b965ad`)
     .then(response => {
         return response.json();
     })
