@@ -5,3 +5,5 @@
 * Vanilla JS
 * CSS
 * HTML
+
+View the working project [here](https://rosendopili.github.io/notflix/).  
