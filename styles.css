@@ -78,8 +78,7 @@ h1{
 }
 
 form{
-    padding: 50px 0px 100px; 
-    margin: 0 auto; 
+    margin: 0 auto 30px; 
     letter-spacing: 2px; 
 }
 .search{
@@ -89,6 +88,9 @@ form{
     text-align: center; 
     border-style: none; 
     box-shadow: 0px 5px 5px black; 
+}
+.search:hover{
+    opacity: .9; 
 }
 button{
     border-style: none; 
@@ -101,9 +103,37 @@ button{
     background-image: linear-gradient(45deg, rgb(216, 15, 15), rgb(255, 0, 0)); 
     font-weight: bold; 
 }
-.resetButton{
-    background-color: black; 
-    background-image: linear-gradient(45deg, rgb(21, 20, 20), black); 
+.searchButton:hover{
+    opacity: .9; 
+}
+.prevButton{
+    background-image: linear-gradient(45deg, rgb(173, 179, 64), rgb(237, 237, 17)); 
     font-weight: bold; 
-    color: white; 
+}
+.prevButton:hover{
+    opacity: .9; 
+}
+.nextButton{
+    background-image: linear-gradient(45deg, rgb(17, 135, 45), rgb(9, 160, 64)); 
+    font-weight: bold; 
+}
+.nextButton:hover{
+    opacity: .9; 
+}
+.error{
+    line-height: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    background-image: linear-gradient(rgb(255, 0, 0),  rgb(216, 15, 15)); 
+    font-size: 20px; 
+    height: 30px; 
+    width: 310px; 
+    border-radius: 5px; 
+    text-shadow: none; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0px 5px 5px black; 
+}
+.display-none{
+    display: none; 
 }
