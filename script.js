@@ -8,6 +8,15 @@ const nextButton = document.querySelector('.nextButton');
 const prevButton = document.querySelector('.prevButton'); 
 const search = document.querySelector('.search'); 
 const form = document.querySelector('form'); 
+const moviePage = document.querySelector('.moviePage'); 
+const modalCloseButton = document.querySelector('.movieCloseButton'); 
+const movieTitle = document.querySelector('.movieTitle'); 
+const moviePoster = document.querySelector('.moviePoster'); 
+const movieRated = document.querySelector('.movieRated'); 
+const movieYear = document.querySelector('.movieYear'); 
+const movieGenre = document.querySelector('.movieGenre'); 
+const movieActors = document.querySelector('.movieActors'); 
+const movieRatingsContainer = document.querySelector('.movieRatingsContainer');
 
 let page = 1; 
 let category = "x-men"
@@ -46,6 +55,21 @@ const getData = (e) => {
         });    
 }
 
+const getMoreData = (e) => {
+    movieRatingsContainer.innerText = ""; 
+    console.log(e); 
+    fetch(`http://www.omdbapi.com/?i=${e}&apikey=c0b965ad`)
+        .then(response => {
+            return response.json();
+        })
+        .then(response => {
+            console.log(response); 
+            showMoviePoster(response); 
+        })
+        .catch(err => {
+            console.log(err);
+        });    
+}
 
 const showMovies = (data, parent) => {
 
@@ -54,6 +78,8 @@ const showMovies = (data, parent) => {
         const listItem = document.createElement('div'); 
         listItem.classList.add('movieCard');
         parent.appendChild(listItem); 
+
+        listItem.setAttribute('id', data[i].imdbID); 
 
         const cardImage = document.createElement('img'); 
         listItem.appendChild(cardImage); 
@@ -68,6 +94,48 @@ const showMovies = (data, parent) => {
         }else{
             cardImage.setAttribute('src', data[i].Poster);
         }
+        
+        listItem.addEventListener('click', (e) =>{
+            e.preventDefault(); 
+            let movieID = data[i].imdbID; 
+            getMoreData(movieID); 
+            displayNone(); 
+        })
+    }
+}
+
+const showMoviePoster = (data) => {
+  
+    movieTitle.textContent = data.Title; 
+    moviePoster.setAttribute('src', data.Poster); 
+    movieYear.textContent = data.Year; 
+    movieGenre.textContent = data.Genre; 
+    movieActors.textContent = data.Actors; 
+
+    if(data.Rated = "N/A"){
+        movieRated.textContent = "Unrated"; 
+    }else{
+        movieRated.textContent = data.Rated; 
+    }
+
+    const ratingsArray = data.Ratings; 
+    console.log(ratingsArray); 
+
+    for (let i = 0; i < ratingsArray.length; i++){
+        const source = document.createElement('p'); 
+        const value = document.createElement('p');
+        const movieRatingsCard = document.createElement('div');
+
+        movieRatingsCard.classList.add('movieRatingsCard'); 
+        source.classList.add("movieRatingsSource"); 
+        value.classList.add("movieRatingsValue");
+        
+        movieRatingsContainer.appendChild(movieRatingsCard); 
+        movieRatingsCard.appendChild(source); 
+        movieRatingsCard.appendChild(value); 
+
+        source.innerText = ratingsArray[i].Source; 
+        value.innerText = ratingsArray[i].Value; 
     }
 }
 
@@ -100,3 +168,9 @@ prevButton.addEventListener('click', function(e){
 search.addEventListener('click', function(){
     form.reset(); 
 })
+
+const displayNone = () => {
+    moviePage.classList.toggle('display-none'); 
+}
+
+modalCloseButton.addEventListener('click', displayNone); 

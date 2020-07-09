@@ -4,6 +4,8 @@ html{
     width: 100vw; 
 }
 body{
+    position: relative; 
+    z-index: 0; 
     width: 100vw; 
     height: auto; 
     overflow-x: auto;
@@ -136,4 +138,73 @@ button{
 }
 .display-none{
     display: none; 
+}
+.moviePage{
+    position: fixed;
+    top: 0; 
+    left: 0;  
+    width: 100vw; 
+    height: 100vh; 
+    background-color:rgba(26, 24, 24, 0.913);   
+    z-index: 1; 
+}
+.moviePageCard{
+    background-image: linear-gradient(45deg, black, rgb(12, 11, 11), rgb(31, 28, 28)); 
+    display: flex; 
+    flex-direction: column; 
+    width: 400px; 
+    height: 600px; 
+    position: absolute; 
+    top: calc((100vh/2) - 300px); 
+    left: calc((100vw/2) - 200px); 
+    z-index: 5; 
+    border-radius: 10px; 
+    padding: 10px; 
+    box-shadow: 0px 5px 10px rgb(45, 43, 43); 
+}
+.movieTitle{
+    text-align: center; 
+    padding: 0; 
+    font-size: 30px; 
+    margin: 5px auto 0; 
+    max-width: 340px
+}
+.moviePoster{
+    width: 250px; 
+    height: 350px; 
+    padding: 5px; 
+    margin: 0 auto; 
+}
+.movieInfo{
+    font-size: 15px; 
+    line-height: 20px; 
+    align-self: center; 
+    justify-content: center; 
+    width: 100%; 
+}
+span{
+    padding: 0 5px; 
+}
+.movieRatingsContainer{
+    display: flex; 
+    justify-content: space-around;
+    padding: 0; 
+}
+.movieRatingSource{
+    font-weight: bold; 
+    font-size: 16px; 
+    margin-bottom: 0; 
+    padding-bottom: 0; 
+}
+.movieRatingsValue{
+    color: red; 
+}
+.movieCloseButton{
+    width: 25px; 
+    height: 25px; 
+    filter: invert(); 
+    position: absolute; 
+    top: 20px; 
+    left: calc((100vw/2) + 178px); 
+    z-index: 6; 
 }
