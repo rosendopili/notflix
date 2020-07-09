@@ -17,6 +17,7 @@ const movieYear = document.querySelector('.movieYear');
 const movieGenre = document.querySelector('.movieGenre'); 
 const movieActors = document.querySelector('.movieActors'); 
 const movieRatingsContainer = document.querySelector('.movieRatingsContainer');
+const moviePageCard = document.querySelector('.moviePageCard'); 
 
 let page = 1; 
 let category = "x-men"
@@ -57,7 +58,7 @@ const getData = (e) => {
 
 const getMoreData = (e) => {
     movieRatingsContainer.innerText = ""; 
-    console.log(e); 
+    
     fetch(`http://www.omdbapi.com/?i=${e}&apikey=c0b965ad`)
         .then(response => {
             return response.json();
@@ -107,10 +108,15 @@ const showMovies = (data, parent) => {
 const showMoviePoster = (data) => {
   
     movieTitle.textContent = data.Title; 
-    moviePoster.setAttribute('src', data.Poster); 
     movieYear.textContent = data.Year; 
     movieGenre.textContent = data.Genre; 
     movieActors.textContent = data.Actors; 
+
+    if(data.Poster === "N/A"){
+        moviePoster.setAttribute('src', './assets/movie-poster.jpg'); 
+    }else{
+        moviePoster.setAttribute('src', data.Poster);
+    }
 
     if(data.Rated = "N/A"){
         movieRated.textContent = "Unrated"; 
@@ -137,6 +143,10 @@ const showMoviePoster = (data) => {
         source.innerText = ratingsArray[i].Source; 
         value.innerText = ratingsArray[i].Value; 
     }
+}
+
+const displayNone = () => {
+    moviePage.classList.toggle('display-none'); 
 }
 
 searchButton.addEventListener('click', (e) =>{
@@ -166,11 +176,11 @@ prevButton.addEventListener('click', function(e){
 })
 
 search.addEventListener('click', function(){
+    page = 1; 
     form.reset(); 
 })
 
-const displayNone = () => {
-    moviePage.classList.toggle('display-none'); 
-}
-
-modalCloseButton.addEventListener('click', displayNone); 
+modalCloseButton.addEventListener('click', (e) => {
+    moviePoster.setAttribute('src', "https://map.stjohns.ca/mapcentre/assests/images/loading.gif");
+    displayNone(); 
+}); 
