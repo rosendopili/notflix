@@ -133,15 +133,19 @@ const showMoviePoster = (data) => {
         const movieRatingsCard = document.createElement('div');
 
         movieRatingsCard.classList.add('movieRatingsCard'); 
-        source.classList.add("movieRatingsSource"); 
-        value.classList.add("movieRatingsValue");
+        source.classList.add('movieRatingsSource'); 
+        value.classList.add('movieRatingsValue');
         
         movieRatingsContainer.appendChild(movieRatingsCard); 
         movieRatingsCard.appendChild(source); 
         movieRatingsCard.appendChild(value); 
+        if (ratingsArray[i].Source === 'Internet Movie Database'){
+            source.innerText = "IMDB";
+        }else{
+            source.innerText = ratingsArray[i].Source; 
+        }
+        value.innerText = ratingsArray[i].Value;  
 
-        source.innerText = ratingsArray[i].Source; 
-        value.innerText = ratingsArray[i].Value; 
     }
 }
 
@@ -184,3 +188,5 @@ modalCloseButton.addEventListener('click', (e) => {
     moviePoster.setAttribute('src', "https://map.stjohns.ca/mapcentre/assests/images/loading.gif");
     displayNone(); 
 }); 
+
+

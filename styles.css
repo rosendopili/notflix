@@ -13,17 +13,18 @@ body{
     z-index: 0; 
     width: 100vw; 
     height: auto; 
-    overflow-x: auto;
+    overflow-x: visible;
     font-family: 'PT Sans Narrow', sans-serif;; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     margin: 0 auto; 
-    /* background-image: url('https://cdn.hipwallpaper.com/i/98/21/dUyCkp.jpg');  */
-    background-image: linear-gradient(45deg, black, rgb(18, 16, 16), rgb(40, 33, 33));   
+    background-image: url('assets/netflixBG.jpg'); 
+    /* background-image: linear-gradient(45deg, black, rgb(18, 16, 16), rgb(40, 33, 33));    */
     background-color: black; 
     background-repeat: no-repeat; 
     background-size: cover; 
+    background-attachment: fixed; 
     color: white; 
 }
 .container{
@@ -38,14 +39,19 @@ body{
     overflow-y: visible; 
     white-space: wrap;
     background-color: transparent; 
+    scrollbar-width: none;
     /* margin: 50px;  */
+}
+.container::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
 }
 .movieCard{
     width: 220px; 
     height: 370px; 
     position: relative;
     display: block;
-    flex: 1 1 0px;
+    flex: 1;
     transition: transform 500ms;
     flex-direction: column; 
     /* margin: 0 3px;  */
@@ -74,7 +80,7 @@ body{
 img{
     width: 180px; 
     height: 280px; 
-    padding: 20px; 
+    padding: 20px 20px 0 20px; 
     object-fit: contain; 
     object-position: center;
     margin: 0 auto; 
@@ -107,45 +113,47 @@ h1{
 form{
     margin: 100px auto 30px; 
     letter-spacing: 2px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
 }
 .search{
-    width: 200px; 
+    width: 350px; 
     height: 30px; 
     border-radius: 5px; 
     text-align: center; 
     border-style: none; 
     box-shadow: 0px 5px 5px black; 
+    transition: opacity 500ms; 
+    margin: 0 auto 10px; 
 }
 .search:hover{
-    opacity: .9; 
+    opacity: .8;
 }
 button{
     border-style: none; 
     height: 30px; 
     width: 100px; 
+    margin: 0 10px; 
     border-radius: 5px; 
-    box-shadow: 0px 5px 5px black;     
+    box-shadow: 0px 5px 5px black;  
+    transition: transform 500ms; 
+}
+form button:hover {
+  transform: scale(1.2);
+  cursor: pointer; 
 }
 .searchButton{
     background-image: linear-gradient(45deg, rgb(216, 15, 15), rgb(255, 0, 0)); 
     font-weight: bold; 
 }
-.searchButton:hover{
-    opacity: .9; 
-}
 .prevButton{
     background-image: linear-gradient(45deg, rgb(173, 179, 64), rgb(237, 237, 17)); 
     font-weight: bold; 
 }
-.prevButton:hover{
-    opacity: .9; 
-}
 .nextButton{
     background-image: linear-gradient(45deg, rgb(17, 135, 45), rgb(9, 160, 64)); 
     font-weight: bold; 
-}
-.nextButton:hover{
-    opacity: .9; 
 }
 .error{
     line-height: 30px; 
@@ -201,28 +209,37 @@ button{
     margin: 0 auto; 
 }
 .movieInfo{
+    width: 400px; 
+    height: auto; 
     font-size: 15px; 
     line-height: 20px; 
-    align-self: center; 
-    justify-content: center; 
-    width: 100%; 
+    text-align: center; 
+    margin: 12px 0; 
 }
 span{
     padding: 0 5px; 
+    word-break: none; 
+}
+.spanContainer{
+    max-width: 400px; 
 }
 .movieRatingsContainer{
     display: flex; 
     justify-content: space-around;
-    padding: 0; 
+    padding: 8px 0; 
+    border: 1px solid rgb(53, 50, 50);
+    border-radius: 5px; 
+    margin-top: 6px;  
 }
-.movieRatingSource{
-    font-weight: bold; 
-    font-size: 16px; 
-    margin-bottom: 0; 
+.movieRatingsSource{
+    font-size: 16px;
+    margin-bottom: 5px; 
     padding-bottom: 0; 
+    width: 100px; 
 }
 .movieRatingsValue{
     color: red; 
+    font-style: italic;
 }
 .movieCloseButton{
     width: 25px; 
@@ -232,8 +249,11 @@ span{
     top: calc((100vh/2 - 315px)); 
     left: calc((100vw/2) + 170px); 
     z-index: 6; 
+    transition: transform 500ms; 
 }
-
 .movieCloseButton:hover{
-    filter: none; 
+    transform: scale(1.2); 
+}
+.movieYear{
+    font-style: italic; 
 }
