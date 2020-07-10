@@ -185,7 +185,7 @@ search.addEventListener('click', function(){
 })
 
 modalCloseButton.addEventListener('click', (e) => {
-    moviePoster.setAttribute('src', "https://map.stjohns.ca/mapcentre/assests/images/loading.gif");
+    moviePoster.setAttribute('src', "https://thumbs.gfycat.com/SkinnySeveralAsianlion-max-1mb.gif");
     displayNone(); 
 }); 
 
