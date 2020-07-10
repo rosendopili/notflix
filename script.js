@@ -59,7 +59,7 @@ const getData = (e) => {
 const getMoreData = (e) => {
     movieRatingsContainer.innerText = ""; 
     
-    fetch(`http://www.omdbapi.com/?i=${e}&apikey=c0b965ad`)
+    fetch(`https://www.omdbapi.com/?i=${e}&apikey=c0b965ad`)
         .then(response => {
             return response.json();
         })
