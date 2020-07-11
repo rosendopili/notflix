@@ -19,6 +19,7 @@ const movieActors = document.querySelector('.movieActors');
 const movieRatingsContainer = document.querySelector('.movieRatingsContainer');
 const moviePageCard = document.querySelector('.moviePageCard'); 
 
+let id = 1; 
 let page = 1; 
 let category = "x-men"
 
@@ -34,7 +35,6 @@ fetch(`https://www.omdbapi.com/?s=${category}&apikey=c0b965ad`)
             console.log(err);
         });    
 
-
 const getData = (e) => {
     e.preventDefault(); 
     console.log(page); 
@@ -48,7 +48,9 @@ const getData = (e) => {
         })
         .then(response => {
             showMovies(response.Search, searchContainer); 
+            // localStorage.setItem(query, id); 
         })
+        // .then(console.log(localStorage))
         .catch(err => {
             console.log(err);
             error.classList.remove('display-none'); 
@@ -156,6 +158,7 @@ const displayNone = () => {
 searchButton.addEventListener('click', (e) =>{
     e.preventDefault()
     getData(e); 
+    id += 1; 
 }); 
 
 nextButton.addEventListener('click', (e) => {
@@ -188,5 +191,3 @@ modalCloseButton.addEventListener('click', (e) => {
     moviePoster.setAttribute('src', "https://thumbs.gfycat.com/SkinnySeveralAsianlion-max-1mb.gif");
     displayNone(); 
 }); 
-
-
