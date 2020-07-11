@@ -109,7 +109,7 @@ h1{
     left: 0; 
 }
 form{
-    margin: 100px auto 30px; 
+    margin: 60px auto 0; 
     letter-spacing: 2px; 
     display: flex; 
     flex-direction: column; 
