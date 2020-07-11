@@ -105,10 +105,8 @@ h1{
     color: white(216, 13, 13); 
     text-shadow: 4px 4px 1px black; 
     background-image: linear-gradient(red, rgb(198, 12, 12)); 
-    position: fixed; 
     top: 0; 
     left: 0; 
-    z-index: 9;
 }
 form{
     margin: 100px auto 30px; 
