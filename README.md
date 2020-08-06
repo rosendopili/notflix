@@ -7,7 +7,7 @@
 * HTML
 
 ### Next steps: 
-* Adding navigation buttons for users without trackpads
+* Navigation buttons for users without trackpads
 * Input updated search 
 * More categories
 * Switch to an API with added functionality
